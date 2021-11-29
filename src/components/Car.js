@@ -2,8 +2,8 @@ import React from 'react'
 import cars from '../cars.json'
 import { useParams } from "react-router-dom";
 import './car.css'
-// import material ui components here //
-// Container, Paper, Chip //
+
+import { Card, CardContent, CardActions, Divider } from '@material-ui/core'
 
 const Car = (props) => {
     let {id} = useParams();
@@ -13,8 +13,9 @@ const Car = (props) => {
     console.log(findCar)
     return (
         <div class='theList'>
-            <h1>{findCar.Name}</h1>
-            <span>{findCar.Name.toUpperCase()}</span>
+            <Card >
+            <CardContent className="text-gray">
+            <h1>{findCar.Name.toUpperCase()}</h1>
                             <ul>
                                 <li>Acceleration: {findCar["Acceleration"]}</li>  
                                 <li>Cylinders: {findCar["Cylinders"]}</li>
@@ -25,6 +26,8 @@ const Car = (props) => {
                                 <li>Weight_in_lbs: {findCar["Weight_in_lbs"]}</li>
                                 <li>Year: {findCar["Year"]}</li>
                             </ul>
+                </CardContent>
+            </Card>
         </div>                    
     )
 }
